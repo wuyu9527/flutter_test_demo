@@ -7,6 +7,7 @@ import 'utils/shared_preferences.dart';
 import 'utils/provider.dart';
 import 'model/search_history.dart';
 import 'views/welcome_page/index.dart';
+import 'package:flutter_doctor/views/home.dart';
 
 const int ThemeColor = 0xFFC91B3A;
 SpUtil sp;
@@ -37,7 +38,13 @@ class MyApp extends StatelessWidget {
       return WelcomePage();
     } else {
       //直接进入主页
-      return WelcomePage();
+      String name = sp.getString(SharedPreferencesKeys.name);
+      String password = sp.getString(SharedPreferencesKeys.password);
+      if (name.isNotEmpty && password.isNotEmpty) {
+        return null;
+      } else {
+        return AppPage();
+      }
     }
   }
 

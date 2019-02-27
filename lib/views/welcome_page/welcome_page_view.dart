@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_doctor/views/welcome_page/page_view_bar.dart';
 import 'package:flutter_doctor/utils/event_bus.dart';
+import 'package:flutter_doctor/routers/application.dart';
+import 'package:flutter_doctor/routers/routers.dart';
 
 class WelcomePageView extends StatefulWidget {
   @override
@@ -76,7 +78,9 @@ class _SimplePage extends StatelessWidget {
               child: Text(
                 "进入",
               ),
-              onPressed: () => {},
+              onPressed: (){
+                Application.router.navigateTo(context,Routes.login);
+              },
             ),
           )
         ],
