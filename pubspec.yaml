@@ -35,7 +35,7 @@ dependencies:
   url_launcher: ^4.0.1
   #webview
   flutter_webview_plugin: ^0.3.0+2
-
+  quiver: ^2.0.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -57,9 +57,12 @@ flutter:
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
   assets:
-  - images/welcome_1.jpg
-  - images/welcome_2.jpg
-  - images/welcome_3.jpg
+    - assets/fonts/
+    - images/welcome_1.jpg
+    - images/welcome_2.jpg
+    - images/welcome_3.jpg
+    - images/niao.jpg
+    - images/pgug.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
@@ -86,3 +89,8 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.io/custom-fonts/#from-packages
+
+  fonts:
+    - family: IconFont
+      fonts:
+        - asset: assets/fonts/iconfont.ttf

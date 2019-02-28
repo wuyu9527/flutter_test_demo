@@ -12,7 +12,9 @@ import 'package:flutter_doctor/views/login/index.dart';
 // app的首页
 var homeHandler = new Handler(
   handlerFunc: (BuildContext context, Map<String, List<String>> params) {
-    return new AppPage();
+    String name = params['name']?.first;
+    String password = params['password']?.first;
+    return new AppPage(name,password);
   },
 );
 

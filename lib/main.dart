@@ -1,13 +1,19 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
+import 'package:flutter_doctor/views/home.dart';
+import 'package:flutter/services.dart';
+
+import 'package:quiver/strings.dart' as Quiver;
+import 'package:matcher/matcher.dart';
 import 'routers/routers.dart';
 import 'routers/application.dart';
-
 import 'utils/shared_preferences.dart';
 import 'utils/provider.dart';
 import 'model/search_history.dart';
 import 'views/welcome_page/index.dart';
-import 'package:flutter_doctor/views/home.dart';
+import 'package:flutter_doctor/views/login/index.dart';
 
 const int ThemeColor = 0xFFC91B3A;
 SpUtil sp;
@@ -20,6 +26,12 @@ void main() async {
   SearchHistoryList(sp);
   //db = Provider.db;
   runApp(MyApp());
+  if (Platform.isAndroid) {
+// 以下两行 设置android状态栏为透明的沉浸。写在组件渲染之后，是为了在渲染后进行set赋值，覆盖状态栏，写在渲染之前MaterialApp组件会覆盖掉这个值。
+    SystemUiOverlayStyle systemUiOverlayStyle =
+        SystemUiOverlayStyle(statusBarColor: Colors.transparent);
+    SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -40,10 +52,10 @@ class MyApp extends StatelessWidget {
       //直接进入主页
       String name = sp.getString(SharedPreferencesKeys.name);
       String password = sp.getString(SharedPreferencesKeys.password);
-      if (name.isNotEmpty && password.isNotEmpty) {
-        return null;
+      if (Quiver.isNotEmpty(name) && Quiver.isNotEmpty(password)) {
+        return AppPage(name,password);
       } else {
-        return AppPage();
+        return Login();
       }
     }
   }
