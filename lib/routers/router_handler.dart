@@ -7,7 +7,7 @@ import '../widgets/404.dart';
 import 'package:flutter_doctor/components/full_screen_code_dialog.dart';
 import 'package:flutter_doctor/views/web_page/web_view_page.dart';
 import 'package:flutter_doctor/views/home.dart';
-import 'package:flutter_doctor/views/login/index.dart';
+import 'package:flutter_doctor/views/login_page/index.dart';
 
 // app的首页
 var homeHandler = new Handler(

@@ -15,14 +15,14 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-
-
   @override
   void initState() {
     super.initState();
     init();
   }
+
   SpUtil sp;
+
   init() async {
     sp = await SpUtil.getInstance();
     sp.putBool(SharedPreferencesKeys.showWelcome, false);
@@ -113,9 +113,8 @@ class _LoginState extends State<Login> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20.0)),
                       onPressed: () {
-                        print(nameController.text);
-                        print(passwordController.text);
-                        Application.router.navigateTo(context, '${Routes.home}?name=${nameController.text}&password=${passwordController.text}');
+                        Application.router.navigateTo(context,
+                            "${Routes.home}?name=${nameController.text}&password=${passwordController.text}");
                       },
                     ),
                   ),

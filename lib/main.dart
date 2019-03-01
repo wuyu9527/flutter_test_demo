@@ -13,9 +13,9 @@ import 'utils/shared_preferences.dart';
 import 'utils/provider.dart';
 import 'model/search_history.dart';
 import 'views/welcome_page/index.dart';
-import 'package:flutter_doctor/views/login/index.dart';
+import 'package:flutter_doctor/views/login_page/index.dart';
 
-const int ThemeColor = 0xFFC91B3A;
+
 SpUtil sp;
 var db;
 
@@ -65,7 +65,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'title',
       theme: ThemeData(
-        primaryColor: Color(ThemeColor),
+        primaryColor: Color(0xFF2196F3),
         backgroundColor: Color(0xFFEFEFEF),
         accentColor: Color(0xFF888888),
         textTheme: TextTheme(
